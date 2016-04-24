@@ -1,0 +1,156 @@
+@import "../../../bower_components/bootstrap/dist/css/bootstrap.min.css";
+
+@media (min-width: 1200px) {
+    .col-lg-centered {
+        float: none;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-centered {
+        float: none;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .col-sm-centered {
+        float: none;
+        margin: 0 auto;
+    }
+}
+
+.col-xs-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+.svg {
+    background-color: #fff;
+    box-shadow: 0 0 10px #fff;
+    display: block;
+}
+
+.bg-grey {
+    background-color: #ADADAD;
+}
+
+.moveable {
+    cursor: move;
+}
+
+.svg text {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.svg-seat {
+    opacity: .7;
+    cursor: pointer;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    fill: #99391e;
+}
+
+.svg-seat:hover {
+    opacity: 1;
+}
+
+.svg-seat > text {
+    fill: #F4F4F4;
+}
+
+.svg-seat.selected {
+    opacity: 1;
+}
+
+.svg-seat.selected > circle {
+    stroke-width: 2;
+    stroke: #99391e;
+    fill: #b6a81e;
+}
+
+.svg-seat.reserved > circle {
+    /*stroke-width: 2;*/
+    stroke: #fff;
+    fill: #6B6B6B;
+}
+
+.svg-seat.reserved {
+    cursor: default;
+}
+
+.svg-seat.reserved:hover, .svg-seat.reserved:focus {
+    opacity: .7;
+}
+
+.popover {
+    max-width: 800px; /* optional max width */
+    width: intrinsic; /* Safari/WebKit uses a non-standard name */
+    width: -moz-max-content; /* Firefox/Gecko */
+    width: max-content; /* Chrome */
+}
+
+.svg-sector {
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.relative {
+    position: relative;
+}
+
+.svg-controls {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+.btn-control {
+    width: 28px;
+    height: 28px;
+    padding: 4px 7px;
+}
+
+.btn-rounded {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.svg-controls-group {
+    padding: 5px 0;
+}
+
+.placeholder-centered::-webkit-input-placeholder {
+    text-align: center;
+}
+
+.placeholder-centered:-moz-placeholder { /* Firefox 18- */
+    text-align: center;
+}
+
+.placeholder-centered::-moz-placeholder {  /* Firefox 19+ */
+    text-align: center;
+}
+
+.placeholder-centered:-ms-input-placeholder {
+    text-align: center;
+}
+
+.form-control[readonly] {
+    background-color: #fff;
+    opacity: 1;
+}
+
+textarea {
+    resize: none;
+}

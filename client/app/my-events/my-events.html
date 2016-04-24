@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Moje predstavenia</h1>
+
+            <div class="container">
+                <div ng-switch="ctrl.myEvents.length === 0" ng-if="ctrl.myEvents">
+                    <p ng-switch-when="true" class="text-center">Zatiaľ si nevytvoril žiadne predstavenia.</p>
+                    <div ng-switch-when="false">
+                        <my-events-list list="ctrl.myEvents"></my-events-list>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

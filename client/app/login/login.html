@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12 col-lg-centered col-md-centered col-sm-centered">
+            <h1>Prihlásenie</h1>
+            <form name="loginForm" ng-submit="ctrl.login()">
+                <div class="form-group">
+                    <label for="email">
+                        E-mail:
+                    </label>
+                    <input id="email" type="email" class="form-control" title="e-mail" ng-model="ctrl.email">
+                </div>
+                <div class="form-group">
+                    <label for="password">
+                        Heslo:
+                    </label>
+                    <input id="password" minlength="5" type="password" class="form-control" title="password" ng-model="ctrl.password">
+                </div>
+                <p class="text-right">
+                    Nemáš ešte konto? <a href="" ui-sref="signup">Zaregistruj sa</a>
+                </p>
+                <div ng-show="ctrl.serverError" class="alert alert-danger" role="alert">
+                    <strong>Ups!</strong> Niečo sa nepodarilo. Skús zopakovať neskôr.
+                </div>
+                <div ng-show="ctrl.wrongData" class="alert alert-danger" role="alert">
+                    Niečo sa nepodarilo. Skontroluj, či si zadal/a informácie správne.
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-success" ng-disabled="ctrl.requestStarted">Prihlásiť</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

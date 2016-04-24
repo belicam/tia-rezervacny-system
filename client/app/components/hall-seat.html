@@ -1,0 +1,6 @@
+<g class="svg-seat" ng-click="ctrl.toggleSelect()" ng-class="{'selected': ctrl.seat.selected, 'reserved': ctrl.seat.reserved}">
+    <circle ng-attr-cx="{{ ctrl.seat.x }}" ng-attr-cy="{{ ctrl.seat.y }}" ng-attr-r="{{ ctrl.seatRadius }}"></circle>
+    <text ng-attr-x="{{ ctrl.seat.x }}" ng-attr-y="{{ ctrl.seat.y }}"
+          font-size="11" fill="black" text-anchor="middle" alignment-baseline="central">{{ ctrl.seat.Number }}
+    </text>
+</g>

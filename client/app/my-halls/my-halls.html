@@ -1,0 +1,18 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Moje kinosály</h1>
+
+            <div class="container">
+                <div ng-switch="ctrl.myHalls.length === 0" ng-if="ctrl.myHalls">
+
+                    <p ng-switch-when="true" class="text-center">Zatiaľ si nevytvoril žiadne kinosály.</p>
+                    <div ng-switch-when="false">
+                        <my-halls-list list="ctrl.myHalls"></my-halls-list>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

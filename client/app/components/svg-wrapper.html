@@ -1,0 +1,27 @@
+<div class="inline-block relative">
+    <svg id="svg-el" class="svg" xmlns="http://www.w3.org/2000/svg" version="1.1"
+         ng-attr-width="{{ ctrl.svg.width }}" ng-attr-height="{{ ctrl.svg.height }}"
+         ng-attr-viewBox="{{ '0 0 ' + ctrl.svg.width + ' ' + ctrl.svg.height }}">
+        <hall-screen screen-x="ctrl.hall.ScreenX" screen-y="ctrl.hall.ScreenY" mode="{{ ::ctrl.mode }}"></hall-screen>
+        <hall-sector rows="ctrl.hall.Rows" mode="{{ ::ctrl.mode }}"></hall-sector>
+        It seems your browser doesn't fully support SVG.
+    </svg>
+    <div class="svg-controls">
+        <div class="svg-controls-group">
+            <svg-control click-action="ctrl.zoomIn()" control-type="zoomIn"></svg-control>
+            <svg-control click-action="ctrl.zoomOut()" control-type="zoomOut"></svg-control>
+        </div>
+        <div class="svg-controls-group">
+            <svg-control click-action="ctrl.panUp(30)" control-type="up"></svg-control>
+            <div class="clearfix">
+                <svg-control click-action="ctrl.panLeft()" control-type="left" class="pull-left"></svg-control>
+                <svg-control click-action="ctrl.panRight()" control-type="right"
+                             class="pull-right"></svg-control>
+            </div>
+            <svg-control click-action="ctrl.panDown(30)" control-type="down"></svg-control>
+        </div>
+        <div class="svg-control-group">
+            <svg-control click-action="ctrl.reset()" control-type="reset"></svg-control>
+        </div>
+    </div>
+</div>

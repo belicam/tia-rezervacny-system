@@ -1,0 +1,79 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Vytvoriť predstavenie</h1>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-lg-4 col-lg-centered col-md-centered">
+                        <form ng-submit="ctrl.createEvent()">
+                            <div class="form-group">
+                                <label for="eventName">
+                                    Názov predstavenia
+                                </label>
+                                <input id="eventName" type="text" class="form-control" title="Názov predstavenia"
+                                       ng-required="true"
+                                       ng-model="ctrl.eventData.Name" placeholder="Názov prestavenia">
+                            </div>
+                            <div class="form-group">
+                                <label for="eventStart">
+                                    Začiatok predstavenia
+                                </label>
+                                <p class="input-group">
+                                    <input id="eventStart" type="text" class="form-control"
+                                           placeholder="Začiatok predstavenia"
+                                           datetime-picker="MM/dd/yyyy HH:mm" title="Začiatok predstavenia"
+                                           ng-model="ctrl.eventData.Start" readonly="readonly"
+                                           is-open="ctrl.datePickerOpened" ng-required="true"/>
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default"
+                                                ng-click="ctrl.datePickerOpened = true">
+                                            <span class="glyphicon glyphicon-calendar"></span></button>
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <label for="eventDuration">
+                                    Dĺžka predstavenia
+                                </label>
+                                <input id="eventDuration" type="number" class="form-control" title="Dĺžka predstavenia"
+                                       ng-model="ctrl.eventData.Duration" ng-required="true"
+                                       placeholder="v minútach" min="0">
+                            </div>
+                            <div class="form-group" ng-if="!!ctrl.availableHalls && ctrl.availableHalls.length > 0">
+                                <label for="eventHall">
+                                    Miesto konania
+                                </label>
+                                <select class="form-control" name="eventHall" id="eventHall">
+                                    <option ng-repeat="hall in ::ctrl.availableHalls" value="{{ ::hall.Id }}">
+                                        {{ ::hall.Name }}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="eventPrice">
+                                    Vstupné
+                                </label>
+                                <input id="eventPrice" type="number" class="form-control" title="Vstupné"
+                                       ng-model="ctrl.eventData.TicketPrice" ng-required="true"
+                                       placeholder="Vstupné" min="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="eventAbout">
+                                    O predstavení
+                                </label>
+                                <textarea id="eventAbout" rows="6" class="form-control"
+                                          ng-model="ctrl.eventData.About">
+                                </textarea>
+                            </div>
+                            <div class="form-group text-center">
+                                <button class="btn btn-primary" type="submit">Vytvoriť</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

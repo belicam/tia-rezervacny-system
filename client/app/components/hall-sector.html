@@ -1,0 +1,6 @@
+<g class="svg-sector">
+    <g ng-repeat="row in ctrl.rows">
+        <text></text>
+        <hall-seat ng-repeat="seat in row.Seats" seat="seat" radius="{{ ::ctrl.seatRadius }}"></hall-seat>
+    </g>
+</g>

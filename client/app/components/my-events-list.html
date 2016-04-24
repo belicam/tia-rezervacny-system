@@ -1,0 +1,23 @@
+<div class="list-group">
+    <div class="list-group-item" ng-repeat="event in $ctrl.list">
+        <h2 class="list-group-item-heading">{{ ::event.Name }}</h2>
+        <dl class="dl-horizontal">
+            <dt>Začiatok predstavenia:</dt>
+            <dd>{{ ::event.Start | date : 'mediumDate' }}</dd>
+            <dt>Dĺžka predstavenia:</dt>
+            <dd>{{ ::event.Duration }} min.</dd>
+            <dt>Kinosála:</dt>
+            <dd>{{ ::event.Hall.Name }}</dd>
+            <dt>Vstupné:</dt>
+            <dd>{{ ::event.TicketPrice }}&euro;</dd>
+            <dt ng-show="!!event.About && event.About !== ''">O predstavení: </dt>
+            <dd>{{ ::event.About }}</dd>
+        </dl>
+        <p class="list-group-item-text text-right">
+            <a href="#" ng-click="$ctrl.deleteEvent(event.Id)" class="text-right btn btn-danger"
+               title="Vymazať predstavenie">
+                Vymazať <span class="glyphicon glyphicon-remove"></span>
+            </a>
+        </p>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#header-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" ui-sref="home">Rezervačný systém pre kinosály</a>
+            </div>
+            <div id="header-collapse" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right" ng-switch="ctrl.isLoggedIn()">
+                    <li ng-switch-when="true" class="dropdown" uib-dropdown>
+                        <a href="#" class="dropdown-toggle" uib-dropdown-toggle role="button"><b>{{ ctrl.userName() }}</b> <span class="caret"></span></a>
+                        <ul class="dropdown-menu" uib-dropdown-menu ng-switch="::ctrl.userIsOrganizer()">
+                            <li><a href="#" ui-sref="myReservations">Moje rezervácie</a></li>
+                            <li ng-switch-when="true"><a href="#" ui-sref="myEvents">Moje predstavenia</a></li>
+                            <li ng-switch-when="true"><a href="#" ui-sref="myHalls">Moje sály</a></li>
+                            <li ng-switch-when="true" role="separator" class="divider"></li>
+                            <li ng-switch-when="true"><a href="#" ui-sref="createEvent">Vytvoriť predstavenie</a></li>
+                            <li ng-switch-when="true"><a href="#" ui-sref="createHall">Vytvoriť sálu</a></li>
+                        </ul>
+                    </li>
+                    <li ui-sref-active="active"><a href="" ui-sref="home">home</a></li>
+                    <li ui-sref-active="active" ng-switch-when="false"><a href="" ui-sref="login">login</a></li>
+                    <li ui-sref-active="active" ng-switch-when="true"><a href="" ng-click="ctrl.logout()">logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

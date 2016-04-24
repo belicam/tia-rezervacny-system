@@ -1,0 +1,11 @@
+<ul class="nav nav-pills">
+    <li role="presentation" ng-if="!$ctrl.hall.Rows || $ctrl.hall.Rows.length == 0">
+        <sector-create-popover hall="$ctrl.hall" seat-spacing="$ctrl.seatSpacing"></sector-create-popover>
+    </li>
+    <li role="presentation" ng-if="$ctrl.hall.Rows.length > 0">
+        <button ng-click="$ctrl.deleteSelectedSeats()" class="btn btn-primary">Vymazať označené sedadlá</button>
+    </li>
+    <li role="presentation" ng-if="$ctrl.hall.Rows.length > 0" class="pull-right">
+        <button ng-click="$ctrl.deleteAllSeats()" class="btn btn-danger">Vymazať všetky sedadlá</button>
+    </li>
+</ul>

@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Moje rezervácie</h1>
+
+            <div class="container">
+                <div ng-switch="ctrl.myReservations.length === 0" ng-if="ctrl.myReservations">
+                    <p ng-switch-when="true" class="text-center">Momentálne nemáš žiadne rezervácie.</p>
+                    <div ng-switch-when="false">
+                        <my-reservations-list list="ctrl.myReservations"></my-reservations-list>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

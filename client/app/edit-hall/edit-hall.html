@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>{{ ctrl.hall.Name }}</h1>
+            <div class="container text-center">
+                <hall-creator hall="ctrl.hall"></hall-creator>
+                <div class="row">
+                    <div class="text-center col-md-3 col-md-centered">
+                        <form ng-submit="ctrl.editHall()">
+                            <div class="form-group">
+                                <input class="form-control placeholder-centered" type="text" title="Názov kinosály" placeholder="Názov kinosály" ng-model="ctrl.hall.Name" required>
+                            </div>
+                            <button class="btn btn-primary btn-lg" type="submit"
+                                    ng-disabled="!ctrl.hall.Rows || ctrl.hall.Rows.length === 0">
+                                Uložiť zmeny
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
