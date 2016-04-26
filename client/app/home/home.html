@@ -3,6 +3,9 @@
         <div class="col-md-12">
             <h1>Nasledujúce predstavenia</h1>
             <div class="container">
+                <div class="text-center">
+                    <local-spinner ng-show="ctrl.loading"></local-spinner>
+                </div>
                 <div ng-switch="ctrl.eventsByDate.length === 0" ng-if="ctrl.eventsByDate">
                     <p ng-switch-when="true" class="text-center">Neboli vytvorené žiadne predstavenia.</p>
                     <div ng-switch-when="false">

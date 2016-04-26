@@ -4,8 +4,10 @@
             <h1>Moje kinosály</h1>
 
             <div class="container">
+                <div class="text-center">
+                    <local-spinner ng-show="ctrl.loading"></local-spinner>
+                </div>
                 <div ng-switch="ctrl.myHalls.length === 0" ng-if="ctrl.myHalls">
-
                     <p ng-switch-when="true" class="text-center">Zatiaľ si nevytvoril žiadne kinosály.</p>
                     <div ng-switch-when="false">
                         <my-halls-list list="ctrl.myHalls"></my-halls-list>

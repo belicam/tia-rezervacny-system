@@ -8,12 +8,15 @@
     /* @ngInject */
     function MyEventsController (eventService) {
         var ctrl = this;
+        ctrl.loading = false;
 
         activate();
 
         function activate() {
+            ctrl.loading = true;
             return getMyEvents().then(function() {
                 console.log('my events loaded');
+                ctrl.loading = false;
             });
         }
 

@@ -29,7 +29,8 @@
                     controllerAs: 'ctrl'
                 }
             },
-            resolve: { /* @ngInject */
+            resolve: {
+                /* @ngInject */
                 hall: function ($stateParams, hallService) {
                     return hallService.getHall($stateParams.id);
                 }

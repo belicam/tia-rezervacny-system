@@ -8,12 +8,15 @@
     /* @ngInject */
     function MyHallsController (hallService) {
         var ctrl = this;
+        ctrl.loading = false;
 
         activate();
 
         function activate() {
+            ctrl.loading = true;
             return getMyHalls().then(function() {
                 console.log('my halls loaded');
+                ctrl.loading = false;
             });
         }
 

@@ -28,10 +28,12 @@
                     controllerAs: 'ctrl'
                 }
             },
-            resolve: { /* @ngInject */
+            resolve: {
+                /* @ngInject */
                 event: function(eventService, $stateParams) {
                     return eventService.getEvent($stateParams.id);
                 },
+                /* @ngInject */
                 hall: function(hallService, event) {
                     return hallService.getHall(event.Hall.Id);
                 }

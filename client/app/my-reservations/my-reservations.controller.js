@@ -8,12 +8,15 @@
     /* @ngInject */
     function MyReservationsController (reservationService) {
         var ctrl = this;
+        ctrl.loading = false;
 
         activate();
 
         function activate() {
+            ctrl.loading = true;
             return getMyReservations().then(function() {
                 console.log('my reservations loaded');
+                ctrl.loading = false;
             });
         }
 

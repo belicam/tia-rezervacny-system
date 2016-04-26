@@ -28,11 +28,11 @@
                 if (toState.data.authenticated && !sessionService.isCreated()) {
                     event.preventDefault();
                     $state.go('home');
+                }
 
-                    if (toState.data.isOrganizer && !sessionService.getUser().isOrganizer) {
-                        event.preventDefault();
-                        $state.go('home');
-                    }
+                if (toState.data.isOrganizer && !sessionService.getUser().IsOrganizer) {
+                    event.preventDefault();
+                    $state.go('home');
                 }
             }
         }

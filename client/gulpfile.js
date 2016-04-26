@@ -33,7 +33,7 @@ var paths = {
     index: './app/index.html',
     // fbpixel: './app/assets/indexscripts/fbpixel.html',
     // analytics: './app/assets/indexscripts/analytics.html',
-    partials: ['app/**/*.html', '!app/index.html', '!app/assets/indexscripts/*.html', 'app/**/*.svg'],
+    partials: ['app/**/*.html', '!app/index.html', '!app/assets/indexscripts/*.html', 'app/**/*.svg', '!app/assets/fonts/**/*.svg'],
     distDev: './dist.dev',
     distProd: './dist.prod',
     distScriptsProd: './dist.prod/scripts',
@@ -112,7 +112,7 @@ pipes.builtAppScriptsProd = function () {
             // Doesn't work with resolve, so we must be explicit there
             add: true
         }))
-        .pipe(plugins.uglify({mangle: true}))
+        .pipe(plugins.uglify())
         .pipe(plugins.sourcemaps.write())
         .pipe(gulp.dest(paths.distScriptsProd));
 };
