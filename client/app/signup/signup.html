@@ -3,23 +3,23 @@
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12 col-lg-centered col-md-centered col-sm-centered">
             <h1>Registrácia</h1>
             <form name="loginForm" ng-submit="ctrl.signup()">
-                <div class="form-group">
+                <div class="form-group form-group-lg">
                     <label for="meno">
                         Meno:
                     </label>
-                    <input id="meno" type="text" class="form-control" title="meno" ng-model="ctrl.name">
+                    <input id="meno" type="text" class="input-lg form-control" title="meno" ng-model="ctrl.name">
                 </div>
-                <div class="form-group">
+                <div class="form-group form-group-lg">
                     <label for="email">
                         E-mail:
                     </label>
-                    <input id="email" type="email" class="form-control" title="e-mail" ng-model="ctrl.email">
+                    <input id="email" type="email" class="input-lg form-control" title="e-mail" ng-model="ctrl.email">
                 </div>
-                <div class="form-group">
+                <div class="form-group form-group-lg">
                     <label for="password">
                         Heslo:
                     </label>
-                    <input id="password" minlength="5" type="password" class="form-control" title="heslo" ng-model="ctrl.password">
+                    <input id="password" minlength="5" type="password" class="input-lg form-control" title="heslo" ng-model="ctrl.password">
                 </div>
                 <div class="checkbox">
                     <label for="organizer">
@@ -36,8 +36,8 @@
                 <div ng-show="ctrl.wrongData" class="alert alert-danger" role="alert">
                     E-mailová adresa je už obsadená. Skús inú.
                 </div>
-                <div class="form-group text-center">
-                    <button type="submit" class="btn btn-success" ng-disabled="ctrl.requestStarted">Registrovať</button>
+                <div class="form-group form-group-lg text-center">
+                    <button type="submit" class="btn btn-success btn-lg" ng-disabled="ctrl.requestStarted">Registrovať</button>
                 </div>
             </form>
         </div>
