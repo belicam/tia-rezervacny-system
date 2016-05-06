@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="tiars" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\martin\\School\\mgr\\1\.rocnik\\Leto\\TIA\\ReservationSystemApi\\ReservationSystemApi\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^D:\\martin\\School\\mgr\\1\.rocnik\\Leto\\TIA\\ReservationSystemApi\\ReservationSystemApi\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="ReservationSystemApiContext-Web.config Connection String" description="" value="Data Source=tcp:tiars.database.windows.net,1433;Initial Catalog=tiarsdb;User ID=admintiars@tiars;Password=Tiarsadmin1;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False" tags="">
+    <parameterEntry kind="XmlFile" scope="D:\\martin\\School\\mgr\\1\.rocnik\\Leto\\TIA\\ReservationSystemApi\\ReservationSystemApi\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ReservationSystemApiContext']/@connectionString" />
+  </parameter>
+</parameters>

@@ -54,4 +54,27 @@ namespace ReservationSystemApi.Models
         public double ScreenY { get; set; }
     }
 
+    public class HallOwner
+    {
+        public HallOwner(Hall hall, bool HasReservations)
+        {
+            this.Id = hall.Id;
+            this.Name = hall.Name;
+            this.Owner = new UserPublic(hall.Owner);
+            this.Rows = hall.Rows;
+            this.ScreenX = hall.ScreenX;
+            this.ScreenY = hall.ScreenY;
+            this.HasReservations = HasReservations;
+        }
+
+        public int Id { get; set; }
+        public string Name { get; set; }
+
+        [JsonIgnore]
+        public UserPublic Owner { get; set; }
+        public ICollection<Row> Rows { get; set; }
+        public double ScreenX { get; set; }
+        public double ScreenY { get; set; }
+        public bool HasReservations { get; set; }
+    }
 }

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="ReservationSystemApiContext-Web.config Connection String" description="ReservationSystemApiContext Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:tiars.database.windows.net,1433;Database=tiarsdb;User ID=admintiars@tiars;Password=Tiarsadmin1;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\martin\\School\\mgr\\1\.rocnik\\Leto\\TIA\\ReservationSystemApi\\ReservationSystemApi\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ReservationSystemApiContext']/@connectionString" />
+  </parameter>
+  <parameter name="ReservationSystemApiContext_DatabasePublish-Web.config Connection String" description="ReservationSystemApiContext_DatabasePublish Connection String used in web.config by the application to access the database." defaultValue="ReservationSystemApiContext_DatabasePublish.ConnetionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\martin\\School\\mgr\\1\.rocnik\\Leto\\TIA\\ReservationSystemApi\\ReservationSystemApi\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ReservationSystemApiContext_DatabasePublish']/@connectionString" />
+  </parameter>
+</parameters>

@@ -69,7 +69,7 @@ namespace ReservationSystemApi.Controllers
                         token = db.Tokens.Add(token);
 
                         dbuser.Token = token;
-                        db.Entry(dbuser).State = EntityState.Modified;
+                        db.Entry(dbuser).State = System.Data.Entity.EntityState.Modified;
                         try
                         {
                             db.SaveChanges();
@@ -140,7 +140,7 @@ namespace ReservationSystemApi.Controllers
                 return BadRequest();
             }
 
-            db.Entry(user).State = EntityState.Modified;
+            db.Entry(user).State = System.Data.Entity.EntityState.Modified;
 
             try
             {

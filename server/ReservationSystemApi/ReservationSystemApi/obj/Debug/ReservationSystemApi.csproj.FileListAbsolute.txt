@@ -15,7 +15,6 @@ D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi
 D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi\bin\System.Web.Http.WebHost.xml
 D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi\obj\Debug\ReservationSystemApi.dll
 D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi\obj\Debug\ReservationSystemApi.pdb
-D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi\obj\Debug\ReservationSystemApi.csprojResolveAssemblyReference.cache
 D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi\bin\CryptSharp.dll
 D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi\bin\CryptSharp.pdb
 D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi\bin\CryptSharp.xml
@@ -27,3 +26,5 @@ D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi
 D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi\bin\Microsoft.Owin.xml
 D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi\obj\Debug\ReservationSystemApi.Migrations.init.resources
 D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi\obj\Debug\ReservationSystemApi.csproj.GenerateResource.Cache
+D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi\obj\Debug\ReservationSystemApi.csprojResolveAssemblyReference.cache
+D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi\obj\Debug\ReservationSystemApi.Migrations.hasReservationsEvent.resources

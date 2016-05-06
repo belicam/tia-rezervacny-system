@@ -1,7 +1,13 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <h1>Vytvoriť predstavenie</h1>
+            <div class="row">
+                <div class="jumbotron page-header-tia">
+                    <div class="container-fluid">
+                        <h1>Vytvoriť predstavenie</h1>
+                    </div>
+                </div>
+            </div>
 
             <div class="container">
                 <div class="row">
@@ -15,7 +21,7 @@
                                        ng-required="true"
                                        ng-model="ctrl.eventData.Name" placeholder="Názov prestavenia">
                             </div>
-                            <div class=" form-group-lg  form-group">
+                            <div class="form-group">
                                 <label for="eventStart">
                                     Začiatok predstavenia
                                 </label>
@@ -40,7 +46,8 @@
                                        ng-model="ctrl.eventData.Duration" ng-required="true"
                                        placeholder="v minútach" min="0">
                             </div>
-                            <div class=" form-group-lg  form-group" ng-if="!!ctrl.availableHalls && ctrl.availableHalls.length > 0">
+                            <div class=" form-group-lg  form-group"
+                                 ng-if="!!ctrl.availableHalls && ctrl.availableHalls.length > 0">
                                 <label for="eventHall">
                                     Miesto konania
                                 </label>

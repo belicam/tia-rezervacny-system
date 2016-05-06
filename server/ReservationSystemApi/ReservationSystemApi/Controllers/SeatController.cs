@@ -48,7 +48,7 @@ namespace ReservationSystemApi.Controllers
                 return BadRequest();
             }
 
-            db.Entry(seat).State = EntityState.Modified;
+            db.Entry(seat).State = System.Data.Entity.EntityState.Modified;
 
             try
             {

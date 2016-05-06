@@ -13,6 +13,7 @@ using ReservationSystemApi.Services;
 using ReservationSystemApi.Filters;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Http.ModelBinding;
+using System.Web.Http.Cors;
 
 namespace ReservationSystemApi.Controllers
 {
@@ -51,7 +52,10 @@ namespace ReservationSystemApi.Controllers
         {
             try
             {
-                var evts = db.Events.Include("Hall").OrderBy(e => e.Start);
+                var evts = db.Events.Include("Hall")
+                    .Where(e => DateTime.Compare(DateTime.Now, e.Start) != 1)
+                    .OrderBy(e => e.Start);
+
                 return Ok(evts);
             }
             catch (Exception e)
@@ -103,7 +107,7 @@ namespace ReservationSystemApi.Controllers
                 return BadRequest();
             }
 
-            db.Entry(@event).State = EntityState.Modified;
+            db.Entry(@event).State = System.Data.Entity.EntityState.Modified;
 
             try
             {
@@ -183,6 +187,11 @@ namespace ReservationSystemApi.Controllers
             if (@event == null)
             {
                 return NotFound();
+            }
+
+            if (@event.HasReservations)
+            {
+                return BadRequest("Not allowed to delete event with reservations.");
             }
 
             db.Events.Remove(@event);

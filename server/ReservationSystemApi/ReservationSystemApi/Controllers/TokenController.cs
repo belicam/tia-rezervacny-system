@@ -61,7 +61,7 @@ namespace ReservationSystemApi.Controllers
                 return BadRequest();
             }
 
-            db.Entry(token).State = EntityState.Modified;
+            db.Entry(token).State = System.Data.Entity.EntityState.Modified;
 
             try
             {

@@ -12,7 +12,7 @@ namespace ReservationSystemApi.Models
     {
         public Event()
         {
-
+            HasReservations = false;
         }
 
         public int Id { get; set; }
@@ -39,6 +39,8 @@ namespace ReservationSystemApi.Models
 
         [JsonIgnore]
         public User Owner { get; set; }
+
+        public bool HasReservations { get; set; }
     }
 
     public class EventPublic
@@ -53,6 +55,7 @@ namespace ReservationSystemApi.Models
             this.TicketPrice = evt.TicketPrice;
             this.Hall = evt.Hall;
             this.Owner = new UserPublic(evt.Owner);
+            this.HasReservations = evt.HasReservations;
         }
 
         public int Id { get; set; }
@@ -65,6 +68,8 @@ namespace ReservationSystemApi.Models
 
         [JsonIgnore]
         public UserPublic Owner { get; set; }
+
+        public bool HasReservations { get; set; }
     }
 
     public class EventCreate
@@ -85,6 +90,10 @@ namespace ReservationSystemApi.Models
         
         [Required(ErrorMessage = "Hall id is required")]
         public int Hall { get; set; }
+
+        [JsonIgnore]
+        public bool HasReservations { get; set; }
+
     }
 
 }

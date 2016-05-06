@@ -138,7 +138,7 @@
     text-align: center;
 }
 
-.placeholder-centered::-moz-placeholder {  /* Firefox 19+ */
+.placeholder-centered::-moz-placeholder { /* Firefox 19+ */
     text-align: center;
 }
 
@@ -188,4 +188,23 @@ textarea {
 
 .loader img {
     width: 100%;
+}
+
+.navbar.navbar-default.navbar-inverse {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+}
+
+.jumbotron.page-header-tia {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.jumbotron.page-header-tia h1{
+    font-size: 45px;
 }

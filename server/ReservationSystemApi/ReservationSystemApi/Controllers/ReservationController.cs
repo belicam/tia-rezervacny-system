@@ -114,7 +114,7 @@ namespace ReservationSystemApi.Controllers
                 return BadRequest();
             }
 
-            db.Entry(reservation).State = EntityState.Modified;
+            db.Entry(reservation).State = System.Data.Entity.EntityState.Modified;
 
             try
             {
@@ -171,6 +171,15 @@ namespace ReservationSystemApi.Controllers
                 db.Reservations.AddRange(newReservations);
 
                 db.SaveChanges();
+
+                //todo dokoncit oznacovanie eventu ze ma rezervacie
+
+                //var evt = db.Events.Include("Hall").Where(e => newReservations.ElementAt(0).Event.Id == e.Id).FirstOrDefault();
+
+                //db.Entry(db.Events.Include("Hall")
+                //    .Where(e => reservations.ElementAt(0).Event == e.Id).FirstOrDefault()).CurrentValues.SetValues(evt);
+
+                //db.SaveChanges();
                 return Ok();
             }
             catch (Exception e)

@@ -64,7 +64,21 @@ namespace ReservationSystemApi.Controllers
                 {
                     return NotFound();
                 }
-                return Ok(halls);
+
+                List<HallOwner> res = new List<HallOwner>();
+
+                foreach (Hall hall in halls)
+                {
+                    var hasreservations = false;
+                    foreach (Event e in db.Events.Include("Hall").Where(e => e.Hall.Id == hall.Id).ToList())
+                    {
+                        hasreservations = hasreservations || e.HasReservations;
+                    }
+
+                    res.Add(new HallOwner(hall, hasreservations));
+                }
+
+                return Ok(res);
             }
             catch (Exception e)
             {
