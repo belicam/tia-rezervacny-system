@@ -23,6 +23,7 @@
         function getMyReservations() {
             return reservationService.getReservationsByOwner()
                 .then(function(reservations) {
+                    ctrl.emptyReservations = _.isEmpty(reservations);
                     ctrl.myReservations = reservations;
                     return ctrl.myReservations;
                 });

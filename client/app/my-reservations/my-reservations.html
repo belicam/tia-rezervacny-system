@@ -13,7 +13,7 @@
                 <div class="text-center">
                     <local-spinner ng-show="ctrl.loading"></local-spinner>
                 </div>
-                <div ng-switch="ctrl.myReservations.length === 0" ng-if="ctrl.myReservations">
+                <div ng-switch="ctrl.emptyReservations" ng-if="ctrl.myReservations">
                     <p ng-switch-when="true" class="text-center">Momentálne nemáš žiadne rezervácie.</p>
                     <div ng-switch-when="false">
                         <my-reservations-list list="ctrl.myReservations"></my-reservations-list>

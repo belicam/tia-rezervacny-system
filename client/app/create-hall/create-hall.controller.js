@@ -6,7 +6,7 @@
         .controller('CreateHallController', CreateHallController);
     
     /* @ngInject */
-    function CreateHallController (hallService, $state) {
+    function CreateHallController (hallService, $state, $rootScope) {
         var ctrl = this;
 
         ctrl.hall = {
@@ -17,9 +17,10 @@
         ctrl.createHall = createHall;
 
         function createHall () {
+            $rootScope.$broadcast('$globalLoadStart');
             hallService.createHall(ctrl.hall)
                 .then(function () {
-                    console.log('createHall finished');
+                    $rootScope.$broadcast('$globalLoadEnd');
                     $state.go('myHalls');
                 });
         }
