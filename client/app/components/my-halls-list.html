@@ -1,6 +1,8 @@
-<div class="list-group">
-    <div class="list-group-item" ng-repeat="hall in $ctrl.list">
+<div class="panel panel-primary" ng-repeat="hall in $ctrl.list">
+    <div class="panel-heading">
         <h2 class="list-group-item-heading">{{ ::hall.Name }}</h2>
+    </div>
+    <div class="panel-body">
         <p class="list-group-item-text">Počet radov: {{ ::hall.Rows.length }}</p>
         <p class="list-group-item-text text-right">
             <a href="#" ng-click="$ctrl.editHall(hall.Id)" title="Upraviť kinosálu" class="btn">

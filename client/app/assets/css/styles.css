@@ -208,3 +208,19 @@ textarea {
 .jumbotron.page-header-tia h1{
     font-size: 45px;
 }
+
+p {
+    font-size: 18px;
+}
+
+.reservation-flex {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.reservation-flex > div {
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #BCE1F2;
+}

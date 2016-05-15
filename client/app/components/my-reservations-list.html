@@ -1,22 +1,26 @@
-<div class="list-group">
-    <div class="list-group-item" ng-repeat="reservation in $ctrl.list">
-        <h2 class="list-group-item-heading">{{ ::reservation.Event.Name }}</h2>
-        <h3>Rad: {{ ::reservation.Row.Number }}, Seat: {{ ::reservation.Seat.Number }}</h3>
-        <dl class="dl-horizontal">
-            <dt>Začiatok predstavenia:</dt>
-            <dd>{{ ::reservation.Event.Start | date : 'mediumDate' }}</dd>
-            <dt>Dĺžka predstavenia:</dt>
-            <dd>{{ ::reservation.Event.Duration }} min.</dd>
-            <dt>Kinosála:</dt>
-            <dd>{{ ::reservation.Event.Hall.Name }}</dd>
-            <dt>Vstupné:</dt>
-            <dd>{{ ::reservation.Event.TicketPrice }}&euro;</dd>
-        </dl>
-        <p class="list-group-item-text text-right">
-            <a href="#" ng-click="$ctrl.cancelReservation(reservation.Id)" class="text-right btn btn-danger"
-               title="Vymazať rezerváciu">
-                Vymazať <span class="glyphicon glyphicon-remove"></span>
-            </a>
-        </p>
+<div class="panel panel-primary" ng-repeat="reservationg in $ctrl.list">
+    <div class="panel-heading">
+        <h2 class="list-group-item-heading">Predstavenie: {{ ::reservationg[0].Event.Name }}</h2>
+    </div>
+    <div class="panel-body reservation-flex">
+        <div ng-repeat="reservation in reservationg" class="reservation">
+            <h3>Rad: {{ ::reservation.Row.Number }}, Seat: {{ ::reservation.Seat.Number }}</h3>
+            <dl class="dl-horizontal">
+                <dt>Začiatok predstavenia:</dt>
+                <dd>{{ ::reservation.Event.Start | date : 'mediumDate' }}</dd>
+                <dt>Dĺžka predstavenia:</dt>
+                <dd>{{ ::reservation.Event.Duration }} min.</dd>
+                <dt>Kinosála:</dt>
+                <dd>{{ ::reservation.Event.Hall.Name }}</dd>
+                <dt>Vstupné:</dt>
+                <dd>{{ ::reservation.Event.TicketPrice }}&euro;</dd>
+            </dl>
+            <div class="text-right">
+                <a href="#" ng-click="$ctrl.cancelReservation(reservation.Id)" class="text-right btn btn-danger"
+                   title="Vymazať rezerváciu">
+                    Vymazať <span class="glyphicon glyphicon-remove"></span>
+                </a>
+            </div>
+        </div>
     </div>
 </div>

@@ -71,7 +71,9 @@
                 .catch(getReservationsByOwnerFail);
 
             function getReservationsByOwnerSuccess(response) {
-                return response.data;
+                return _.groupBy(response.data, function (r) {
+                    return r.Event.Id;
+                });
             }
 
             function getReservationsByOwnerFail(err) {
