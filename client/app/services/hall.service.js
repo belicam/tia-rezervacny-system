@@ -7,8 +7,9 @@
 
 
     /* @ngInject */
-    function hallService ($http, api) {
+    function hallService ($http, api, modalService) {
         var service = {
+            hasReservations: hasReservations,
             getAllHallsByOwner: getAllHallsByOwner,
             getHall: getHall,
             editHall: editHall,
@@ -81,15 +82,32 @@
 
         function deleteHall(hallId) {
             return $http.delete(api + '/hall/' + hallId)
-                .then(deleteHallSuccess)
-                .catch(deleteHallFail);
+                .then(
+                    deleteHallSuccess,
+                    deleteHallFail
+                );
 
             function deleteHallSuccess(response) {
                 return response.data;
             }
 
             function deleteHallFail(err) {
-                console.log('deleteHall fail:', err.data);
+                modalService.hallInUse();
+                return err;
+            }
+        }
+
+        function hasReservations(hallId) {
+            return $http.get(api + '/hall/' + hallId + '/hasReservations')
+                .then(hasReservationsSuccess)
+                .catch(hasReservationsFail);
+
+            function hasReservationsSuccess (response) {
+                return response.data;
+            }
+
+            function hasReservationsFail (err) {
+                console.log('hasReservationsFail', err.data);
             }
         }
     }

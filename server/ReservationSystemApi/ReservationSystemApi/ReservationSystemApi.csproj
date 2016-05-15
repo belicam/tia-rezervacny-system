@@ -141,6 +141,10 @@
     <Compile Include="Migrations\201605042059066_hasReservationsEvent.Designer.cs">
       <DependentUpon>201605042059066_hasReservationsEvent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605150940083_deletedHasRefFlag.cs" />
+    <Compile Include="Migrations\201605150940083_deletedHasRefFlag.Designer.cs">
+      <DependentUpon>201605150940083_deletedHasRefFlag.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Hall.cs" />
@@ -177,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605042059066_hasReservationsEvent.resx">
       <DependentUpon>201605042059066_hasReservationsEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605150940083_deletedHasRefFlag.resx">
+      <DependentUpon>201605150940083_deletedHasRefFlag.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -23,7 +23,6 @@
         function deleteEvent(eventId) {
             return eventService.deleteEvent(eventId)
                 .then(function() {
-                    console.log('event deleted');
                     $state.reload();
                 });
         }

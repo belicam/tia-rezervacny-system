@@ -7,7 +7,7 @@
 
 
     /* @ngInject */
-    function eventService ($http, api) {
+    function eventService ($http, api, modalService) {
         var service = {
             getEventsByOwner: getEventsByOwner,
             createEvent: createEvent,
@@ -66,15 +66,18 @@
 
         function deleteEvent(eventId) {
             return $http.delete(api + '/event/' + eventId)
-                .then(deleteEventSuccess)
-                .catch(deleteEventFail);
+                .then(
+                    deleteEventSuccess,
+                    deleteEventFail
+                );
 
             function deleteEventSuccess(response) {
                 return response.data;
             }
 
             function deleteEventFail(err) {
-                console.log('deleteEvent fail:', err.data);
+                modalService.eventInUse();
+                return err;
             }
         }
 

@@ -3,7 +3,7 @@
         <h2 class="list-group-item-heading">{{ ::hall.Name }}</h2>
         <p class="list-group-item-text">Počet radov: {{ ::hall.Rows.length }}</p>
         <p class="list-group-item-text text-right">
-            <a href="#" ui-sref="editHall({ id: hall.Id })" title="Upraviť kinosálu" class="btn">
+            <a href="#" ng-click="$ctrl.editHall(hall.Id)" title="Upraviť kinosálu" class="btn">
                 Upraviť <span class="glyphicon glyphicon-arrow-right"></span>
             </a>
             <a href="#" ng-click="$ctrl.deleteHall(hall.Id)" title="Vymazať kinosálu" class="btn btn-danger">

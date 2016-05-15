@@ -69,19 +69,37 @@ namespace ReservationSystemApi.Controllers
 
                 foreach (Hall hall in halls)
                 {
-                    var hasreservations = false;
-                    foreach (Event e in db.Events.Include("Hall").Where(e => e.Hall.Id == hall.Id).ToList())
-                    {
-                        hasreservations = hasreservations || e.HasReservations;
-                    }
-
-                    res.Add(new HallOwner(hall, hasreservations));
+                    res.Add(new HallOwner(hall));
                 }
 
                 return Ok(res);
             }
             catch (Exception e)
             {
+                return InternalServerError(e);
+            }
+        }
+
+        [AuthorizeToken]
+        [Route("{id:int}/hasReservations")]
+        [HttpGet]
+        public IHttpActionResult hasReservations(int id)
+        {
+            try
+            {
+                string headerToken = ts.getTokenFromHeader(Request);
+                User u = db.Users.Include("Token")
+                    .Where(us => us.Token.AccessToken == headerToken).FirstOrDefault();
+
+                var reservations = db.Reservations.Include("Event").Include("Event.Hall").Where(r => r.Event.Hall.Id == id).ToList();
+                if (reservations != null && reservations.Count > 0)
+                {
+                    return Ok(true);
+                }
+
+                return Ok(false);
+            }
+            catch (Exception e) {
                 return InternalServerError(e);
             }
         }
@@ -175,6 +193,11 @@ namespace ReservationSystemApi.Controllers
                 return NotFound();
             }
 
+            var reservations = db.Reservations.Include("Event").Include("Event.Hall").Where(r => r.Event.Hall.Id == id).ToList();
+            if (reservations != null && reservations.Count > 0)
+            {
+                return BadRequest("hallInUse");
+            }   
 
             hall.Rows.ToList<Row>().ForEach(r => { r.Seats.ToList<Seat>().ForEach(s => db.Seats.Remove(s)); db.Rows.Remove(r); });
 

@@ -189,9 +189,13 @@ namespace ReservationSystemApi.Controllers
                 return NotFound();
             }
 
-            if (@event.HasReservations)
+            var reservations = db.Reservations.Include("Event")
+                .Where(r => r.Event.Id == @event.Id && DateTime.Compare(DateTime.Now, @event.Start) != 1)
+                .ToList();
+
+            if (reservations != null && reservations.Count > 0) 
             {
-                return BadRequest("Not allowed to delete event with reservations.");
+                return BadRequest("eventInUse");
             }
 
             db.Events.Remove(@event);

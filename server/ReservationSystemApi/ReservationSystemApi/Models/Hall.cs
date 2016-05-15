@@ -56,7 +56,7 @@ namespace ReservationSystemApi.Models
 
     public class HallOwner
     {
-        public HallOwner(Hall hall, bool HasReservations)
+        public HallOwner(Hall hall)
         {
             this.Id = hall.Id;
             this.Name = hall.Name;
@@ -64,7 +64,6 @@ namespace ReservationSystemApi.Models
             this.Rows = hall.Rows;
             this.ScreenX = hall.ScreenX;
             this.ScreenY = hall.ScreenY;
-            this.HasReservations = HasReservations;
         }
 
         public int Id { get; set; }
@@ -75,6 +74,5 @@ namespace ReservationSystemApi.Models
         public ICollection<Row> Rows { get; set; }
         public double ScreenX { get; set; }
         public double ScreenY { get; set; }
-        public bool HasReservations { get; set; }
     }
 }
