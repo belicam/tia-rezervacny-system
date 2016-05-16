@@ -29,3 +29,5 @@ D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi
 D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi\obj\Debug\ReservationSystemApi.csprojResolveAssemblyReference.cache
 D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi\obj\Debug\ReservationSystemApi.Migrations.hasReservationsEvent.resources
 D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi\obj\Debug\ReservationSystemApi.Migrations.deletedHasRefFlag.resources
+D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi\obj\Debug\ReservationSystemApi.Migrations.userPropIsAdmin.resources
+D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi\obj\Debug\ReservationSystemApi.Migrations.userPropDeactivated.resources

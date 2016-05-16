@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="jumbotron page-header-tia">
+                    <div class="container-fluid">
+                        <h1>Správa užívateľov</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td>Id</td>
+                            <td>Email</td>
+                            <td>Meno</td>
+                            <td>Deaktivovaný</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="u in ctrl.users track by $index">
+                            <td>{{ u.Id }}</td>
+                            <td>{{ u.Email }}</td>
+                            <td>
+                                <input type="text" class="form-control" ng-model="u.Name" title="Meno používateľa">
+                            </td>
+                            <td>{{ u.Deactivated }}</td>
+                            <td>
+                                <button class="btn btn-success" ng-click="ctrl.updateUser($index)">Uložiť zmeny</button>
+                                <button class="btn btn-danger" ng-click="ctrl.deactivateUser($index)">
+                                    {{ u.Deactivated ? "Aktivovať" : "Deaktivovať" }}
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

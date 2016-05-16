@@ -78,7 +78,7 @@
                     }
                 }
             }
-
+            
             function getCoords(evt) {
                 var e = evt.target;
                 var x = evt.clientX - dim.left;

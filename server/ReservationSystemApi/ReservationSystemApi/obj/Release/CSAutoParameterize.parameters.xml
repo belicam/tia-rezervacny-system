@@ -3,7 +3,4 @@
   <parameter name="ReservationSystemApiContext-Web.config Connection String" description="ReservationSystemApiContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=(localdb)\v11.0; Initial Catalog=ReservationSystemApiContext-20160409143351; Integrated Security=True; MultipleActiveResultSets=True; AttachDbFilename=|DataDirectory|ReservationSystemApiContext-20160409143351.mdf" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="D:\\martin\\School\\mgr\\1\.rocnik\\Leto\\TIA\\ReservationSystemApi\\ReservationSystemApi\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ReservationSystemApiContext']/@connectionString" />
   </parameter>
-  <parameter name="ReservationSystemApiContext_DatabasePublish-Web.config Connection String" description="ReservationSystemApiContext_DatabasePublish Connection String used in web.config by the application to access the database." defaultValue="ReservationSystemApiContext_DatabasePublish.ConnetionString" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="D:\\martin\\School\\mgr\\1\.rocnik\\Leto\\TIA\\ReservationSystemApi\\ReservationSystemApi\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ReservationSystemApiContext_DatabasePublish']/@connectionString" />
-  </parameter>
 </parameters>

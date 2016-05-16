@@ -13,6 +13,7 @@ using System.Text;
 using CryptSharp;
 using System.Runtime.CompilerServices;
 using ReservationSystemApi.Services;
+using ReservationSystemApi.Filters;
 
 namespace ReservationSystemApi.Controllers
 {
@@ -22,13 +23,36 @@ namespace ReservationSystemApi.Controllers
 
         private ReservationSystemApiContext db = new ReservationSystemApiContext();
         private TokenService ts = new TokenService();
+        private ValidatorService vs = new ValidatorService();
 
         [Route("")]
         [HttpGet]
-        [ResponseType(typeof(User))]
+        [AuthorizeToken]
+        [ResponseType(typeof(UserPublic))]
         public IHttpActionResult GetUsers()
         {
-            return Ok(db.Users);
+            try
+            {
+                string headerToken = ts.getTokenFromHeader(Request);
+                User u = db.Users.Include("Token")
+                    .Where(us => us.Token.AccessToken == headerToken).FirstOrDefault();
+
+                if (u == null || !u.IsAdmin)
+                {
+                    return Unauthorized();
+                }
+
+                var dbusers = db.Users.Where(us => !us.IsAdmin).ToList();
+                var result = new List<UserPublic>();
+
+                dbusers.ForEach(us => result.Add(new UserPublic(us)));
+
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return InternalServerError(e);
+            }
         }
 
         [Route("{id:int}")]
@@ -56,7 +80,7 @@ namespace ReservationSystemApi.Controllers
                     .Where(u => (u.Email == user.Email))
                     .FirstOrDefault();
 
-                if (dbuser == null)
+                if (dbuser == null || dbuser.Deactivated)
                 {
                     return NotFound();
                 }
@@ -111,11 +135,11 @@ namespace ReservationSystemApi.Controllers
             else
             {
                 user.Password = Crypter.Blowfish.Crypt(user.Password);
-                
+
                 Token token = ts.CreateToken(user);
                 token = db.Tokens.Add(token);
                 user.Token = token;
-                
+
                 db.Users.Add(user);
                 db.SaveChanges();
 
@@ -127,26 +151,40 @@ namespace ReservationSystemApi.Controllers
 
 
         [Route("{id:int}")]
+        [AuthorizeToken]
         [HttpPut]
-        public IHttpActionResult PutUser(int id, User user)
+        public IHttpActionResult PutUser(int id, UserInfo user)
         {
-            if (!ModelState.IsValid)
+            var ms = vs.validateModel(user);
+            if (ms.Count > 0)
             {
-                return BadRequest(ModelState);
+                return BadRequest(ms);
             }
-
-            if (id != user.Id)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(user).State = System.Data.Entity.EntityState.Modified;
 
             try
             {
+                if (id != user.Id)
+                {
+                    return BadRequest();
+                }
+
+                string headerToken = ts.getTokenFromHeader(Request);
+                User u = db.Users.Include("Token")
+                    .Where(us => us.Token.AccessToken == headerToken).FirstOrDefault();
+
+                if (u == null || !u.IsAdmin)
+                {
+                    return Unauthorized();
+                }
+
+                var dbuser = db.Users.Find(user.Id);
+                dbuser.Name = user.Name; /////// UPDATE USER PROPS
+
+                db.Entry(dbuser).State = System.Data.Entity.EntityState.Modified;
+
                 db.SaveChanges();
             }
-            catch (DbUpdateConcurrencyException)
+            catch (Exception)
             {
                 if (!UserExists(id))
                 {
@@ -162,27 +200,74 @@ namespace ReservationSystemApi.Controllers
         }
 
         [Route("{id:int}")]
+        [AuthorizeToken]
         [HttpDelete]
         public IHttpActionResult DeleteUser(int id)
         {
-            User user = db.Users.Include("Token").SingleOrDefault(u => u.Id == id);
-
-            if (user == null)
-            {
-                return NotFound();
-            }
-
             try
             {
+                string headerToken = ts.getTokenFromHeader(Request);
+                User u = db.Users.Include("Token")
+                    .Where(us => us.Token.AccessToken == headerToken).FirstOrDefault();
+
+                if (u == null || !u.IsAdmin)
+                {
+                    return Unauthorized();
+                }
+
+                User user = db.Users.Include("Token").SingleOrDefault(us => us.Id == id);
+
+                if (user == null)
+                {
+                    return NotFound();
+                }
+
                 db.Tokens.Remove(user.Token);
+                db.Users.Remove(user);
+
+                db.SaveChanges();
+
             }
-            catch (ArgumentNullException e)
+            catch (Exception e)
             {
-
+                return InternalServerError(e);
             }
 
-            db.Users.Remove(user);
-            db.SaveChanges();
+            return Ok();
+        }
+
+        [Route("{id:int}/deactivate/{deact:bool}")]
+        [AuthorizeToken]
+        [HttpPut]
+        public IHttpActionResult SetDeactivateUser(int id, bool deact)
+        {
+            try
+            {
+                string headerToken = ts.getTokenFromHeader(Request);
+                User u = db.Users.Include("Token")
+                    .Where(us => us.Token.AccessToken == headerToken).FirstOrDefault();
+
+                if (u == null || !u.IsAdmin)
+                {
+                    return Unauthorized();
+                }
+
+                User user = db.Users.SingleOrDefault(us => us.Id == id);
+
+                if (user == null)
+                {
+                    return NotFound();
+                }
+
+                user.Deactivated = deact;
+                db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+
+            }
+            catch (Exception e)
+            {
+                return InternalServerError(e);
+            }
 
             return Ok();
         }

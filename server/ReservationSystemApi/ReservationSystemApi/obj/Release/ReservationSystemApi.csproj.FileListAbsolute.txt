@@ -28,3 +28,6 @@ D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi
 D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi\obj\Release\ReservationSystemApi.dll
 D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi\obj\Release\ReservationSystemApi.pdb
 D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi\obj\Release\ReservationSystemApi.Migrations.hasReservationsEvent.resources
+D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi\obj\Release\ReservationSystemApi.Migrations.deletedHasRefFlag.resources
+D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi\obj\Release\ReservationSystemApi.Migrations.userPropIsAdmin.resources
+D:\martin\School\mgr\1.rocnik\Leto\TIA\ReservationSystemApi\ReservationSystemApi\obj\Release\ReservationSystemApi.Migrations.userPropDeactivated.resources

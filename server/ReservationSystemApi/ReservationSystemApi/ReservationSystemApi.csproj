@@ -145,6 +145,14 @@
     <Compile Include="Migrations\201605150940083_deletedHasRefFlag.Designer.cs">
       <DependentUpon>201605150940083_deletedHasRefFlag.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605151949477_userPropIsAdmin.cs" />
+    <Compile Include="Migrations\201605151949477_userPropIsAdmin.Designer.cs">
+      <DependentUpon>201605151949477_userPropIsAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605152246019_userPropDeactivated.cs" />
+    <Compile Include="Migrations\201605152246019_userPropDeactivated.Designer.cs">
+      <DependentUpon>201605152246019_userPropDeactivated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Hall.cs" />
@@ -184,6 +192,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605150940083_deletedHasRefFlag.resx">
       <DependentUpon>201605150940083_deletedHasRefFlag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605151949477_userPropIsAdmin.resx">
+      <DependentUpon>201605151949477_userPropIsAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605152246019_userPropDeactivated.resx">
+      <DependentUpon>201605152246019_userPropDeactivated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -10,6 +10,12 @@ namespace ReservationSystemApi.Models
 {
     public class User
     {
+        public User()
+        {
+            this.IsAdmin = false;
+            this.Deactivated = false;
+        }
+
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Password is required.")]
@@ -29,6 +35,12 @@ namespace ReservationSystemApi.Models
 
         [JsonIgnore]
         public Token Token { get; set; }
+
+        [JsonIgnore]
+        public bool IsAdmin { get; set; }
+ 
+        [JsonIgnore]
+        public bool Deactivated { get; set; }
     }
 
     public class UserInfo
@@ -42,6 +54,12 @@ namespace ReservationSystemApi.Models
         public bool IsOrganizer { get; set; }
         public string Name { get; set; }
         public Token Token { get; set; }
+        public bool IsAdmin { get; set; }
+
+        public UserInfo()
+        {
+
+        }
 
         public UserInfo (User user) {
             this.Id = user.Id;
@@ -50,6 +68,7 @@ namespace ReservationSystemApi.Models
             this.IsOrganizer = user.IsOrganizer;
             this.Token = user.Token;
             this.Name = user.Name;
+            this.IsAdmin = user.IsAdmin;
         }
     }
 
@@ -66,6 +85,10 @@ namespace ReservationSystemApi.Models
 
         public string Name { get; set; }
 
+        public bool IsAdmin { get; set; }
+
+        public bool Deactivated { get; set; }
+
         public UserPublic(User user)
         {
             this.Id = user.Id;
@@ -73,6 +96,8 @@ namespace ReservationSystemApi.Models
             this.Email = user.Email;
             this.IsOrganizer = user.IsOrganizer;
             this.Name = user.Name;
+            this.IsAdmin = user.IsAdmin;
+            this.Deactivated = user.Deactivated;
         }
 
     }

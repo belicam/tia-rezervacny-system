@@ -13,11 +13,16 @@
         ctrl.isLoggedIn = isLoggedIn;
         ctrl.userName = userName;
         ctrl.userIsOrganizer = userIsOrganizer;
+        ctrl.userIsAdmin = userIsAdmin;
 
         //////////////////////////////
 
         function userIsOrganizer() {
             return sessionService.getUser().IsOrganizer;
+        }
+
+        function userIsAdmin() {
+            return sessionService.getUser().IsAdmin;
         }
 
         function userName() {

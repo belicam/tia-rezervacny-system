@@ -18,6 +18,7 @@
             'app.editHall',
             'app.myEvents',
             'app.myHalls',
-            'app.myReservations'
+            'app.myReservations',
+            'app.users'
         ]);
 })();
